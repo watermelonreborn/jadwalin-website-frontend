@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Button from './components/Button';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main-container'>
+      <div className='branding-container'>
+        <img className="jadwalin-logo-sm" src={require('./static/img/jadwalin-logo.png')} alt='jadwal.in logo'></img>
+        <div className='branding-content'>
+          <img src={require('./static/img/calendar-amico.png')} alt='calendar illustration'></img>
+        </div>
+      </div>
+      <div className='auth-container'>
+        <div className='intro-container'>
+          <h1 className='title'>Welcome to Jadwal.in</h1>
+          <h3>Your Discord bot with Google Calendar extension.</h3>
+        </div>
+        <Button logo={'google'} text={'Login with Google'}></Button>
+      </div>
     </div>
+    
   );
 }
 
