@@ -1,0 +1,20 @@
+name: Jadwalin Website Frontend CI
+
+on:
+  push:
+    branches: [ "staging" ]
+    paths-ignore:
+      - '.github/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: SSH to GCE VM and perform website deployment
+      uses: fifsky/ssh-action@master
+      with:
+        command: ./deploy-webfe.sh
+        host: ${{ secrets.SSH_HOST_WEB_FE }}
+        user: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
