@@ -13,7 +13,7 @@ function App() {
       <div className='auth-container'>
         <div className='intro-container'>
           <h1 className='title'>Welcome to Jadwal.in</h1>
-          <h3>Your Discord bot with Google Calendar extension.</h3>
+          <h3>Your Discord bot with Google Calendar extension</h3>
         </div>
         <Button logo={'google'} text={'Login with Google'}></Button>
       </div>
