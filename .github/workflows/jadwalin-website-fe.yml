@@ -28,6 +28,7 @@ jobs:
       # Build the Docker image
       - name: Build & Publish
         run: |
+          gcloud config set project ${{ env.PROJECT }}
           gcloud builds submit --tag gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}
 
       # Deploy to Cloud Run
