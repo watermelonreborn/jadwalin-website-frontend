@@ -5,7 +5,6 @@ on:
       - main
 
 env:
-  PROJECT: jadwal-in
   PROJECT_ID: jadwal-in
   SERVICE: jadwalin-website-frontend
   REGION: us-central1
@@ -28,7 +27,6 @@ jobs:
       # Build the Docker image
       - name: Build & Publish
         run: |
-          gcloud config set project ${{ env.PROJECT }}
           gcloud builds submit --tag gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}
 
       # Deploy to Cloud Run
