@@ -1,20 +1,38 @@
-name: Jadwalin Website Frontend CI
-
+name: jadwalin-website-fe-cloudrun-deploy
 on:
   push:
-    branches: [ "staging" ]
-    paths-ignore:
-      - '.github/**'
+    branches:
+      - main
+
+env:
+  PROJECT_ID: jadwal-in
+  SERVICE: jadwalin-website-frontend
+  REGION: us-central1
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: SSH to GCE VM and perform website deployment
-      uses: fifsky/ssh-action@master
-      with:
-        command: ./deploy-webfe.sh
-        host: ${{ secrets.SSH_HOST_WEB_FE }}
-        user: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - uses: actions/checkout@v3
+
+      # Connect to GCP with Service Account
+      - name: Auth to GCP
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+      # Setup gcloud CLI
+      - uses: google-github-actions/setup-gcloud@v0
+        
+      # Build the Docker image
+      - name: Build & Publish
+        run: |
+          gcloud builds submit --tag gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}
+
+      # Deploy to Cloud Run
+      - name: Deploy to Cloud Run
+        uses: 'google-github-actions/deploy-cloudrun@v0'
+        with:
+          service: '${{ env.SERVICE }}'
+          image: 'gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}'
+          region: '${{ env.REGION }}'
