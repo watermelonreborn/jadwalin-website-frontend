@@ -1,0 +1,20 @@
+.branding-container--connect {
+    background-color: var(--clr-secondary);
+    width: 35%;
+    order: 2
+}
+
+.content-container--connect {
+    background-color: var(--clr-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 5rem;
+    width: 65%;
+    text-align: end;
+}
+
+.branding-content--connect img {
+    width: 100%;
+}
