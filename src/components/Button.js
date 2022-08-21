@@ -1,5 +1,5 @@
 import React from 'react';
-import '../static/css/Button.css';
+import '../static/css/components/Button.css';
 
 export default function Button({ logo, text }) {
     return (

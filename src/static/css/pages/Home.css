@@ -1,0 +1,41 @@
+.main-container {
+  display: flex;
+  height: 100%;
+}
+
+.branding-container {
+  background-color: var(--clr-secondary);
+  width: 35%;
+}
+
+.jadwalin-logo-sm {
+  margin: 1rem;
+  width: 7rem;
+}
+
+.branding-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+}
+
+.branding-content img {
+  width: 90%;
+}
+
+.content-container {
+  background-color: var(--clr-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5rem;
+  width: 65%;
+}
+
+.intro-container {
+  font-size: 1.25rem;
+  color: var(--clr-white);
+}
