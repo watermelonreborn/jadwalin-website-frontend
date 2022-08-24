@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .button-container {
     display: inline-flex;
     align-items: center;
@@ -13,8 +17,8 @@
     height: 2em;
 }
 
-a {
-    text-decoration: none;
-    font-weight: var(--fw-bold);
+.button-text {
     color: var(--clr-primary);
+    font-size: 1.15rem;
+    font-weight: var(--fw-bold);
 }
