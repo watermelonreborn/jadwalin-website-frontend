@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import Button from '../components/Button';
 import '../static/css/pages/Code.css';
@@ -9,6 +9,7 @@ export default function Code() {
     const [toggleLogout, setToggleLogout] = useState(false);
     const navigate = useNavigate();
     const baseUserURL = process.env.REACT_APP_USER_URL;
+    const discordBotInviteURL = 'https://discord.com/api/oauth2/authorize?client_id=1010722014690017310&permissions=8&scope=bot';
     
     useEffect(() => {
         if (sessionStorage.getItem('access_token') === null) {
@@ -51,7 +52,7 @@ export default function Code() {
             </div>
             <div className='sub-container code-two'>
                 <h1 className='title'>If you haven't, invite Jadwal.in bot to your Discord server.</h1>
-                <Link to={"#"}><Button logo={'discord'} text={'Invite Jadwal.in'}></Button></Link>
+                <Button logo={'discord'} text={'Invite Jadwal.in'} func={() => window.open(discordBotInviteURL)}></Button>
             </div>
         </div>
 
