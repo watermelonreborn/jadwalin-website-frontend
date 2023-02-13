@@ -1,3 +1,7 @@
+# Description
+
+A website built in React for Google and Discord account connectivity so users could integrate their Google Calendar with Jadwal.in Discord Bot. Website link: https://jadwalin-website-frontend-oa7pd6bnka-uc.a.run.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
